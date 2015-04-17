@@ -1,0 +1,22 @@
+attach 贴上、附上
+detach 分离
+
+
+一、fragment的生命周期
+	①onAttach()//当一个fragment对象关联到一个
+	              activity时调用
+	②onCreate()
+	③onCreateView()//创建与fragment对象关联的
+		          View视图时调用
+	④onActivityCreated()//当activity对象完成自
+	己的onCreate方法时调用
+	⑤onStart()//fragment对象在UI可见时调用
+	⑥onResume()//fragment对象的UI可以与用户
+		      交互时调用
+	⑦onPause()//fragment对象可见，但不可交互。
+		     有activity对象转为onPause状态
+		     时调用
+	⑧onStop()
+	⑨onDestroyView()
+	⑩onDestroy()
+	11、onDetach()

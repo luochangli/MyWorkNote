@@ -1,0 +1,31 @@
+framelayout linearlayout relativelayout tablelayout
+activity contentprovider service broadcast
+
+1、用于对对象（object)的读写：objectinputstream和
+	objectoutputstream
+
+2、activity的生命周期有：onCreate，onStart，onResume
+	onPause,onStop,onRestart,onDestory
+
+3、Android的存储方式有：sharedpreference,文件，SQLite
+	contentprovider,网络
+	
+4、继承SQLiteOpenHelper
+
+public clsass DBHelper extends SQLiteOpenHelper{
+public final static String DATABASENAME = "diaryOpenHelper.db";
+public final static int DATABASEVERSION = 1;
+//创建数据库
+public DBHelper(Context context, String name, CursorFactory factory, int version){
+	super(context,name,factory,version);
+}
+
+前序遍历：0134256
+中：3140526
+后3415620
+
+二、树
+	①节点 N = 2^k - 1
+	②度 c 父节点下面有几个孩子
+	③深度 k = Log2（N+1）
+Arithmetic IlleagalArgument NullPointer 

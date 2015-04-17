@@ -1,0 +1,28 @@
+一ViewPager 实现Tab类型
+1、文字像素用sp,白色#ffffff
+宽、高、比重（weight)、背景、 
+#0000前面两位代表透明度
+二、Fragment实现Tab类型
+inflater 载入、扩展
+优化布局层次
+include
+merge
+ViewStub
+
+三、LayoutInflater作用及使用
+	①动态载入界面
+	②初学者一般是用继承Activity，重写
+	  onCreate方法里使用setContentView
+	  载入xml文件
+
+四、点击LinearLayout中有Button，点击它中的
+    Button，它会将点击事件交给Button。
+
+五、Fragment的使用
+	①创建继承Fragment的类，复写onCreateView
+	②在Activity中初始化Fragment
+	③FragmentManager fm = getSupportFragmentManager();
+	  FragmentTransacation ft = fm.beginTransaction();
+	  tf.add(R.id.frag_content, fTab01);
+	  tf.show(fTab01);
+	  tf.commit();

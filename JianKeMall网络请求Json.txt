@@ -1,0 +1,34 @@
+
+DataSource
+BaseAdapter :getCount() getItem getItemId getView ;获取每一个Item
+
+ListView Recycler
+
+
+llCoundHelpYou --> llCouldHelpYou.addView(couldHelpView);-->
+
+//MenuHomePageFragment内实现。在得到Json对象后的响应，
+//分配Json数据给对应界面，不做Json解析。
+JsonObjectResponse.onJsonObjectRespose(JSONObject);
+
+//获取数据的方法
+getHomePageDatas()
+
+//BaseFragment内实现
+//执行JsonObject的请求，一级
+executeJsonObjectRequest(path,getHomePageDataListener(),
+isShowLoading/false,ErrorListener/e);
+
+//二级，JsonObject的请求对象--android并发控制包volley
+new JsonObjectRequest(Method.GET, url, null, response, errorListener);
+//三级，执行JsonObject的请求
+exectuteRequest(Request<?> request)
+
+//RequestManager内实现
+//四级，把Json请求对象添加到自定义的请求队列里
+RequestManager.addRequest(Request<?>,Fragment\this)
+//五级，添加RequestQueue队列里,属于volley包
+RequestQueue.add(request);
+
+//获得数据的响应
+Listener<JSONObject> response = new Listener<JSONObject>() {

@@ -1,0 +1,7 @@
+产品详情：
+1、获取产品标识：productId
+getIntent().getStringExtra("productId);
+2、初始化界面
+initViews();
+3、加载数据填充
+getDates();

@@ -1,0 +1,45 @@
+一、ContentProvider
+
+1、简介
+①<!--下面配置中name属性指定ContentProvider类
+   authorities就相当于为该ContentProvider指定URL-->
+<provider android:name = ".DicProvider"
+android:authorities="org.crazyit.provider.dictprovider"/>
+
+生活实例：我们把ContentProvider当成是一个网站来看，官方文档并没有
+这部分的说明。Android要求注册ContentProvider是指定authorities属性
+该属性的值就相当于这个网站的ＵＲＬ。
+
+②Uri：
+content://org.crazyit.providers.dictprovider/words
+他可以分为三个部分。
+a.content：// 这个事Android所规定的，是固定的
+b.org.crazyit.providers.dictprovider 这个是authorities
+c.words 资源部分（或者数据部分），动态改变的
+
+③Uri表达的意思
+content://org.crazy.providers.dictprovider/word/2
+此时他要访问的资源位Word/2,这意味着访问word数据中ID为2的记录
+.../word/2/Word
+访问的是word数据(表)中ID为2的记录的Word字段
+.../words 访问全部数据
+虽然大部分ContentProvider所操作的的数据都来自数据库，但也有些数据
+来自文件、XML或网络等，此时支持的Uri也可以改为如下形式：
+.../word/detail/
+Uri表示word节点下的detail节点
+将字符串转换成Uri，Uri.parse("string");
+Uri uri = Uri.Parse(".../word/2");
+
+④使用ContentResolver操作数据
+    前面提到，ContentProvider相当于一个“网站”，它的作用是暴露可
+供操作的数据，其他应用可以通过ContentResolver来操作ContentProvider
+ContentResolver相当于HttpClient。
+
+Context提供了如下方法来获取ContentResolver
+getContentResolver（）
+
+一般来说，ContentProvider是单例模式的。
+
+
+
+

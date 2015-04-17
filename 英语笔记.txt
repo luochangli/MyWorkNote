@@ -1,0 +1,19 @@
+scroll 滚动
+splash 飞溅
+duration 持续时间
+rotate 旋转
+interpolate 内插器
+degrees 度
+scale 规模,缩放
+decelerate 减速
+offset 偏移
+reverse 反向
+portrait 屏幕水平
+gravity 重心
+launcher 发射器
+pending 直到， 即将发生的
+Volley 并发
+switch 开关、转换
+seek 查找
+sequentially 顺序
+duratoin 持续时间

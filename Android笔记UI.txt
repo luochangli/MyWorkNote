@@ -1,0 +1,64 @@
+component 组件
+Absolute  绝对
+preferences 参数选择；优待
+pending 直到，即将发生或来临的事情
+
+1、Intent和Intent Filter
+	①Intent在Android中被译为“意图”，熟语-目的，
+	  它是Activity、Service和broadcastProvider之
+	  间相互激活的手段。
+	②intent-filter在Manifest文件中配置
+
+2、Android四大组件的作用
+	①Activity是Android程序与用户交互的窗口，管理生命周期以及
+	  一些跳转逻辑
+	②service后台服务于Activity。封装一个完整的功能逻辑实现，
+	  接受上层指令，定义了需要接受的Intent提供同步和异步的接口
+	③ContentProvider是Android提供的第三方应用数据的访问方案，
+	  可以派生ContentProvider类
+	④BroadCastReceiver接受一种或多种Intent作触发事件，接受相关消息，
+	  做一些简单处理，转换成一条Notification，统一了Android的广播事件模型
+
+三、Android的UI
+
+1、view
+	①View有众多子类，包括ViewGroup、基础控件、高级控件和布局
+	
+2、ViewGroup
+	①它通常叫“容器”，本身是控件
+	②它是高级控件和布局的父类
+
+3、Android常用的五种布局
+	①FrameLayout 框架布局：所有东西依次都放在左上角，会重叠
+	②LinearLayout 线性布局：垂直布局和水平布局
+	③RelativeLayout 相对布局：以某一元素为参照物，来定位的布局方式
+	④TableLayout 表格布局：TableRow里面可以具体定义每一个元素
+	⑤AbsoluteLayout 绝对布局：用X，Y坐标制定元素的位置，不适用屏幕
+	  旋转
+
+ 4、Android中的动画类
+	①Tween动画，实现可以使视图组件移动、放大、缩小及产生透明度的变化
+	②Frame动画，传统的动画方法，通过顺序播放排列好的图片来实现，类似电影
+
+5、View的刷新
+	①postinvaliate()可以再分线程刷新
+	②invaliate()只能在主线程中执行
+
+6、NotifiactionManager使用原理
+	①通过getSystemService()获取一个NotificationManager对象
+	②创建一个Notification对象
+	③Notification可以与应用程序脱离。即使程序被关闭，Notification仍然
+	  会显示在状态栏。当程序重新启动后，又可以重新控制Notification。
+	  因此，需要创建一个PendingIntent对象，该对象由Android系统负责
+	  维护，因此，在应用程序关闭后，该对象仍然不会被释放
+	④使用Notification类的setLatestEventInfo（）设置Notification的详细信息
+	⑤使用Notificationmanager类的notify()显示Notification消息
+
+7、View双缓冲
+	①图像闪烁是因为在屏幕上进行多绘图操作，双缓冲使用内存缓冲区来解决由多重
+	  绘制操作造成的闪烁问题。当使用双缓冲时，首先在内存缓冲区里完成所有的
+	  绘制操作，然后把内存缓冲区完成的图像直接复制到屏幕，因为在屏幕上只执行
+	  一个图形操作，所以消除了由复杂绘制操作造成的图像闪烁问题
+
+	②后台画布backcanvas，先把所有绘制操作都在这上面进行，画好后把
+	  backcanvas拷贝到与屏幕关联的canvas上。

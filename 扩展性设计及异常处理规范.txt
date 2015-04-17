@@ -1,0 +1,46 @@
+一、扩展性设计规范
+
+1、没有恰当的理由，不要把类密封起来，理由
+
+	①类为静态类
+	②类的受保护成员保存了高度机密信息
+	③类继承了许多虚成员，逐个密封的代价太高，不如整个密封
+	④不要在密封类中声明保护乘员或虚成员，因为无法覆盖其实现
+建议用保护成员用于高级定制。它提供了扩展性，同时也避免了公用接口过于复杂；
+不要使用虚成员，除非有合适的理由；
+建议只有在绝对必须的时候才用虚成员提供扩展性，并使用Template Method模式；
+要优先使用受保护的虚成员，而不是公有虚成员。
+公有成员通用调用受保护的虚成员的方式来提供扩展性；
+
+二、异常处理规范
+
+	①异常的思想是只对错误采用异常处理
+	②一般情况下不使用异常实现来控制程序流程结构
+	③使用异常而不要用错误代码来报告错误
+	④要通过抛出异常的方式来报告操作失败
+
+1、异常类型选择规范
+	①优先使用System中已有的异常，要最合理、最具针对性
+	
+2、异常处理规范
+	①不吞掉异常
+	②理解该异常在具体环境当中产生的原因
+	③进行清理工作时要用try-finally，避免使用try-catch
+	④要在捕获并重新抛出异常时使用空的throw语句
+
+3、标准异常类的使用
+	①Exception与SystemException
+	②InvalidOperationException
+	③ArgumentException，ArgumentNullException，
+	  ArgumentOutOfRangeException
+	④NullReferenceException,IndexOutOfRangeException,
+	  AccessViolationException。不要显示抛出或捕获
+	⑤StackOverflowException 不要显示抛出或捕获
+	⑥OutOfMemoryException 不要显示抛出或捕获
+
+4、自定义异常类型设计规则
+	①避免太深的继承层次
+	②要从已有的异常基类继承
+	③异常类要以“Exception”做后缀
+	④要使异常可序列化，使其能跨域和远程边界使用
+	⑤要把与安全性有关的信息保存在私有的异常状态中

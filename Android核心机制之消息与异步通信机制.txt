@@ -1,0 +1,23 @@
+一、消息与异步通信机制
+Looper 消息循环
+Handler 是Android的消息发送器
+
+1、在单线程模型中Message、Handler、MessageQueue、Looper之间的关系
+	简而言之，Handler获取当前线程中的Looper对象，Looper用来从存放
+	Message的MessageQueue中取出Message，再由Handler进行Message的分发
+	和处理。
+	①Handler：可以发布或处理一个消息或者操作一个Runnable，通过
+	  Handler发布消息，消息将只会发送到他相关的消息队列，只处理
+	  该消息队列中的消息
+	②MessageQueue：用来存放通过Handler发布的消息，通常附属在创建
+	  它的线程中，Looper。myQueue()得到当前线程的消息队列
+	③Looper：是Handler和MessageQueue之间铜须桥梁，程序组件首先通过
+	  Handler把消息传递给Looper，Looper把消息放入队列。Looper也把消息
+	  的广播出去
+	④Message：线程间交流的信息，处理数据后台线程需要更新UI，则发送
+	  Message内含一些数据给UI线程
+	⑤在单线程模型下，为了线程通信问题，Android设计了MessageQueue，线程
+	  间可以通过该MessageQueue并结合Handler和Looper组件进行信息交换
+	⑥主线程和其他子线程如何交互，传送信息，最终谁来执行处理信息？
+	  最简单的方法：判断Handler对象里面的Looper对象是属于那条线程的，
+	  则由该线程来执行 

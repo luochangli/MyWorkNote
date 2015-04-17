@@ -1,0 +1,54 @@
+receiver 接收机
+provider 提供者
+permission 许可
+instrumentation 仪表仪器 
+bundle 束、一捆
+resume 继续、重新开始；简历
+context:上下文，背景，语境，环境
+content：内容
+AIDL（Android Interface Definition language）跨进程通信
+
+一、Android
+1、Android的系统架构：从上往下四大块为
+Linux内核层、运行库、应用程序框架层和应用程序层
+2、Dalvik android平台的虚拟机
+3、Manifest.xml文件：①根节点、描述package中的所有内容。
+②User-SDK：指定支持的手机系统的最小版本
+③application：包含package中application级别组件声明的根节点
+④activity：Activity是用来与用户交互的主要工具
+⑤receiver：IntentReceiver能使application获得数据的改变或者发生的操作
+⑥service：Service是能在后台运行任意时间的组件
+⑦provider
+⑧uses-permission
+⑨permission
+⑩instrumentation：声明用来测试此package或其他package指令组件的代码
+
+二、Android四大组件：Activity、Service、BroadCastReceiver、ContentProvider
+
+1、Activity是负责与用户交互的组件，一个Android应用中，一个Activity通常
+就是一个单独的屏幕，上面可以有其他控件显示。
+2、Activity生命周期：onCreate、onStart、onResume、onPause、
+onStop、onRestart、onDestroy
+3、重写onSaveInstanceState（）方法可以在被系统回首之前保存当前状态。
+
+1、Service的开发：
+①继承Service类
+②在AndroidManifest.xml文件中的
+<application>节点配置：<service android:name=".自定义类名"/>
+③启动Service
+   方法一：context.startService（）；调用者与服务者没有关连
+   方法二：context.bindService()；调用者与服务者绑定在一起，
+           “不求同生，必须同死”
+
+2、Service的生命周期：onCreate、startService或bindService、onDestroy
+
+
+1、BroadCastReceiver：用于接受并处理广播通知，广播一个Intent。
+
+2、注册广播的几种方式：首先写一个类继承BroadcastReceiver
+   ①在Manifest文件中声明注册
+   ②代码注册
+   
+1、ContentProvider实现数据共享：
+   ①一个程序通过实现一个Contentprovider的抽象接口将自己的数据完全的暴露，
+    ContentProvider是类似与表的方式将数据暴露
