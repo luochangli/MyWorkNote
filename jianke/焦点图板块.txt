@@ -1,0 +1,38 @@
+布局界面
+<LinearLayout
+                android:id="@+id/llFocus"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_Size10"
+                android:background="@color/color_white"
+                android:orientation="vertical"
+                android:visibility="visible" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_size_5"
+                    android:text="可能帮到你"
+                    android:textColor="@color/text_color_common_normal"
+                    android:textSize="@dimen/textSize_16" />
+            </LinearLayout>
+
+//可能帮助你
+	LinearLayout llCouldHelpYou;
+	View couldHelpView;
+在initView中
+llCouldHelpYou = (LinearLayout) view.findViewById(R.id.llCouldHelpYou);
+		couldHelpView = new CouldHelpYouBoard(getActivity(), view, inflater).initView(new JSONArray());
+		llCouldHelpYou.addView(couldHelpView);
+
+在getDataListener中
+for(int i=0;i<llCouldHelpYou.getChildCount();i++){
+						View view = llCouldHelpYou.getChildAt(i);
+						if(view instanceof TextView)
+							continue;
+						llCouldHelpYou.removeView(view);
+					}
+					llCouldHelpYou.addView(new CouldHelpYouBoard(getActivity(), view, inflater).initView(info.optJSONArray("couldHelpYouList")));
+
+需要的类有：
+HPCouldHelpYouAdapter，AutoScrollViewPager

@@ -1,0 +1,5 @@
+host jk-git
+hostname 192.168.70.5
+user git
+port 22
+identityfile ~/.ssh/id_rsa
